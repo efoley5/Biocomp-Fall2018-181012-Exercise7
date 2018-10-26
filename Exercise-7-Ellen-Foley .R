@@ -4,4 +4,34 @@ oddrows <- function(dataframe) {
   n=seq(1, l ,by = 2)
   print(n)
 }
-oddrows(c(1,2,3,4,5))
+
+# Problem 2 
+# Return the number of observations for a given species included in the data set
+iris=read.csv("iris.csv", stringsAsFactors = F)
+
+speciescount <- function(species) {
+  number=iris[iris$Species==species, ]
+  total=nrow(number)
+  return(total)
+}
+#example 
+speciescount("virginica")
+
+#Return a dataframe for flowers with Sepal.Width greater 
+#than a value specified by the function user
+large <- function(s){
+  iris[iris[,2]>=s,]
+}
+large(3.5) 
+
+#Write the data for a given species to a comma-delimited file with the 
+#given species name as the file name.
+csvfile <- function(x){
+  observations=iris[iris$Species==x, ]
+  csv=".csv"
+  add=paste(x, csv, sep=" ")
+  csvfile=write.csv(observations,file=add)
+  return(add)
+}
+#example
+csvfile("setosa")
