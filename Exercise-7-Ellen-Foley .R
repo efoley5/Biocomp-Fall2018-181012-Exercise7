@@ -5,6 +5,11 @@ oddrows <- function(dataframe) {
   print(n)
 }
 
+### Brittni: Length actually gives the number of columns of a dataframe, not the number of rows. We would want to use nrow(dataframe)
+# Also, we wanted the entire row for all odd rows. So a return statement like "return(dataframe[n,])" would work.
+# -0.5
+
+
 # Problem 2 
 # Return the number of observations for a given species included in the data set
 iris=read.csv("iris.csv", stringsAsFactors = F)
